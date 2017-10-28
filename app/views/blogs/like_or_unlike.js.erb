@@ -1,0 +1,1 @@
+$('#like_and_follow').html("<%= escape_javascript( link_to @like_toggle, {action: 'like_or_unlike', id: @blog.id}, remote: true)%><%= escape_javascript (link_to @follow_toggle, {action: 'follow_or_unfollow', id: @blog.id}, remote: true) %>")

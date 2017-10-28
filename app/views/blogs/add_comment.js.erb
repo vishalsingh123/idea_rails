@@ -1,0 +1,7 @@
+<% if @comment.errors.any? %>
+	<%= add_gritter("please login to comment !!") %>
+<% else %>
+	$("#comments").append("<%= escape_javascript(render partial: 'comment', locals: {comment: @comment}) %>");
+	$("div.footer_body").html("<%= escape_javascript(render partial: 'footer_body') %>");
+	<%= add_gritter("comment added successfully!!") %>
+<% end %>

@@ -1,0 +1,57 @@
+<!-- header-top start (Add "dark" class to .header-top in order to enable dark header-top e.g <div class="header-top dark">) -->
+<!-- ================ -->
+<div class="header-top">
+<div class="container">
+<div class="row">
+<div class="col-xs-2  col-sm-6">
+
+<!-- header-top-first start -->
+<!-- ================ -->
+
+<!-- header-top-first end -->
+
+</div>
+<div class="col-xs-10 col-sm-6">
+
+<!-- header-top-second start -->
+<!-- ================ -->
+<div id="header-top-second"  class="clearfix">
+	<a href="/app/latestkhabar.apk"><i class="fa fa-android fa-2x"></i></a>
+<!-- header top dropdowns start -->
+<!-- ================ -->
+<div class="header-top-dropdown">
+<div class="btn-group dropdown">
+<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i> Search</button>
+<%= render "layouts/htop/search" %>
+</div>
+<% if current_user %>
+<div class="btn-group dropdown">
+  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Settings</button>
+<%= render "layouts/htop/edit_profile" %>
+
+<%#= link_to("<button class='btn btn-sm'><i class='fa fa-user'></i>LogOut</button>".html_safe, destroy_user_session_path, :method => :delete) %>
+</div>
+<%else %>
+<div class="btn-group dropdown">
+<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Login</button>
+<%= render "layouts/htop/login" %>
+</div>
+<% end %>
+
+<% if current_user %>
+<div class="btn-group dropdown cart_top_div">
+<%#= render "layouts/htop/cart" %>
+<% end %>
+</div>
+
+</div>
+<!--  header top dropdowns end -->
+
+</div>
+<!-- header-top-second end -->
+
+</div>
+</div>
+</div>
+</div>
+<!-- header-top end -->

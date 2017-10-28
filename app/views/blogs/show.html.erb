@@ -1,0 +1,83 @@
+<!-- ============ Set Title and Description for page -->
+	<% content_for :title do %>
+  	<%= @blog.title %>
+	<% end %>
+	<% content_for :description do %>
+  	<%= truncate @blog.desc, length: 100 %>
+	<% end %>
+<!-- ============================================== -->
+
+<div class="row">
+
+						<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-12">
+
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title"><%= @blog.title %></h1>
+							<!-- page-title end -->
+
+							<!-- blogpost start -->
+							<article class="clearfix blogpost full">
+								<div class="blogpost-body">
+									<div class="side">
+										<%= render partial: 'blog_date', locals: {date: @blog.created_at} %>
+									<div id="affix"><span class="share">Share This</span><div id="share"></div></div>
+									</div>
+									<div class="blogpost-content">
+										<header>
+											<div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#"><%= @blog.user.name %></a></div>
+													<%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'), edit_blog_path(@blog) if admin?%>
+													<%= link_to raw('<i class="glyphicon glyphicon-trash"></i>'), @blog, method: :delete, data: { confirm: 'Are you sure?' } if admin? %>
+
+										</header>
+										<div class="owl-carousel content-slider-with-controls">
+											<div class="overlay-container">
+												<%= image_tag @blog.avatar.url %>	
+											<a href="<%=@blog.avatar.url  %>" class="popup-img overlay" title="image title"><i class="fa fa-search-       plus"></i></a>
+											</div>
+										</div>
+													<p><%= raw(@blog.desc) %></p>
+										</div>
+								</div>
+								<div class="footer_body">
+									<%= render partial: 'footer_body' %>			
+								</div>
+							</article>
+							<!-- blogpost end -->
+					
+						</div>
+						<!-- main end -->
+
+						<!-- comments start -->
+						<div id="comments">
+								<h2 class="title">Comments</h2>
+								<% @comments.each do |comment| %>
+									<%=	render partial: 'comment', locals: {comment: comment} %>
+								<% end %>
+						</div>
+						<!-- comments end -->
+
+						<!-- comments form-->
+						<%= render partial: 'comment_form' if current_user%>	
+					</div>
+
+
+<script>
+$(document).ready(function(){
+	$('body').bind('copy paste cut drag drop', function (e) {
+	   e.preventDefault();
+	});
+
+	$('#comment-form').on('submit', function(e){
+		e.preventDefault();
+		blog_id = <%= @blog.id %>;
+		title = $("#title").val();
+		desc  = $("#desc").val();
+		$.post("add_comment",{id: blog_id, title: title, desc: desc});
+	});
+		ga('send', 'pageview', location.pathname);
+});
+
+</script>

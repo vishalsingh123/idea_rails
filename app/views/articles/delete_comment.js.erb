@@ -1,0 +1,4 @@
+$("#comment_<%=@comment.id%>").remove();
+$("div.footer_body").html("<%= escape_javascript(render partial: 'footer_body') %>");
+
+<%= add_gritter("Comment deleted") %>

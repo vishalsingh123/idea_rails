@@ -1,0 +1,26 @@
+		<ul class="nav navbar-nav"> 
+			<li class="dropdown">
+				<%= link_to root_path, {class: "dropdown-toggle", "data-toggle": "dropdown"} do %> 
+					English 
+				<% end %>
+				<ul class="dropdown-menu">
+					<li> <%= link_to "Latest", root_path %></li>
+					<li> <%= link_to "Finance", english_finance_path %></li>
+					<li> <%= link_to "Cricket", english_cricket_path %></li>
+					<li> <%= link_to "Entertainment", english_entertainment_path %></li>
+					<li> <%= link_to "Technology", english_tech_path %></li>
+				</ul>
+			</li> 
+			<li class="dropdown">
+				<%= link_to "#", {class: "dropdown-toggle", "data-toggle": "dropdown"} do %> 
+					Hindi	
+				<% end %>
+				<ul class="dropdown-menu">
+					<li> <%= link_to "Latest", hindi_latest_news_path %></li>
+					<li> <%= link_to "Entertainment", hindi_entertainment_news_path %></li>
+				</ul>
+			</li>
+			<li><%= link_to "Social", social_path %> </li> 
+			<li><%= link_to "Blogs", blogs_path %> </li> 
+			<li><%= link_to "Articles", articles_path %> </li> 
+		</ul>

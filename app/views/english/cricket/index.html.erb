@@ -1,0 +1,61 @@
+<div class="row">
+	<%= link_to english_cricket_path, {style: "padding-right:15px;padding-bottom:15px;", class: "pull-right"} do %>
+		<i class="fa fa-refresh"></i>
+	<% end %>
+</div>
+<div class="row">
+	<% @matches.each do |match| %>
+		<div class="col-md-3">
+			<div class="image-box mb-20 object-non-visible animated object-visible fadeInLeft" data-animation-effect="fadeInLeft" data-effect-delay="300">
+				<div class="image-box-body">
+					<div class="row" style="padding:10px">	
+						<span class="pull-left">
+							<h3 class="title"><%= match["teamA"] %></h3>
+							<p> <%= match["teamAScore"] %></p>
+						</span>
+						VS
+						<span class="pull-right" style="">
+									<h3 class="title"><%= match["teamB"] %></h3>
+									<p> <%= match["teamBScore"] %></p>
+						</span>
+					</div>
+					<p class="text-success"> <%= match["result"] %></p>
+					<a href="http://www.cricbuzz.com<%= match["link"] %>" class="link" target="_blank"><span>Summary</span></a>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<%= link_to english_cricket_path(:date => Time.now.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==Time.now.strftime("%Y-%m-%d")}"  } do %>
+ Today <i class="fa fa-chevron-right pl-10"></i> 
+<% end  %>
+<%= link_to english_cricket_path(:date => 1.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==1.day.ago.strftime("%Y-%m-%d")}"} do %>
+	Yesterday <i class="fa fa-chevron-right pl-10"></i> 
+<% end  %>
+<%= link_to english_cricket_path(:date => 2.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==2.day.ago.strftime("%Y-%m-%d")}"} do %>
+ 	<%= 2.day.ago.strftime("%d %b")%> <i class="fa fa-chevron-right pl-10"></i>
+<% end  %>
+<%= link_to english_cricket_path(:date => 3.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==3.day.ago.strftime("%Y-%m-%d")}"} do %>
+	<%= 3.day.ago.strftime("%d %b")%> <i class="fa fa-chevron-right pl-10"></i>
+<% end  %>
+<%= link_to english_cricket_path(:date => 4.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==4.day.ago.strftime("%Y-%m-%d")}"} do %>
+	<%= 4.day.ago.strftime("%d %b")%> <i class="fa fa-chevron-right pl-10"></i>
+<% end  %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#cb" data-toggle="tab">CricBuzz</a></li>
+  <li><a href="#espn" data-toggle="tab">ESPN</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="cb"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="espn"><center><%= image_tag "spinner.gif" %></center></div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.get("<%= english_cricket_cb_path %>?date=<%= @date %>");
+    $.get("<%= english_cricket_espn_path %>?date=<%= @date %>");
+		ga('send', 'pageview', location.pathname);
+  });
+</script>

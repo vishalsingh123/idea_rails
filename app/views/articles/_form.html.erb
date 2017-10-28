@@ -1,0 +1,24 @@
+<%= simple_form_for(@article) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :category %>
+    <%= f.input :title %>
+    <%= f.input :desc %>
+	</div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+<script>
+	// Replace the <textarea id="editor1"> with a CKEditor
+	// instance, using default configuration.
+	$(document).on('ready turbolinks:load', function () {
+		$.getScript('//cdn.ckeditor.com/4.4.6/full/ckeditor.js', function(){
+			CKEDITOR.replace( 'article_desc' );
+		});
+	});
+</script>

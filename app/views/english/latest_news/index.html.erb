@@ -1,0 +1,45 @@
+<%= link_to root_path(:date => Time.now.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==Time.now.strftime("%Y-%m-%d")}"  } do %>
+ Today <i class="fa fa-chevron-right pl-10"></i> 
+<% end  %>
+<%= link_to root_path(:date => 1.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==1.day.ago.strftime("%Y-%m-%d")}"} do %>
+	Yesterday <i class="fa fa-chevron-right pl-10"></i> 
+<% end  %>
+<%= link_to root_path(:date => 2.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==2.day.ago.strftime("%Y-%m-%d")}"} do %>
+ 	<%= 2.day.ago.strftime("%d %b")%> <i class="fa fa-chevron-right pl-10"></i>
+<% end  %>
+<%= link_to root_path(:date => 3.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==3.day.ago.strftime("%Y-%m-%d")}"} do %>
+	<%= 3.day.ago.strftime("%d %b")%> <i class="fa fa-chevron-right pl-10"></i>
+<% end  %>
+<%= link_to root_path(:date => 4.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==4.day.ago.strftime("%Y-%m-%d")}"} do %>
+	<%= 4.day.ago.strftime("%d %b")%> <i class="fa fa-chevron-right pl-10"></i>
+<% end  %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#toi" data-toggle="tab">Toi</a></li>
+  <li><a href="#intoday" data-toggle="tab">InToday</a></li>
+  <li><a href="#ndtv" data-toggle="tab">Ndtv</a></li>
+  <li><a href="#zee" data-toggle="tab">Zee</a></li>
+  <li><a href="#oneindia" data-toggle="tab">OneIndia</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="toi"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="intoday" ><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="ndtv" ><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="zee" ><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="oneindia" ><center><%= image_tag "spinner.gif" %></center></div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+		load_news(); 
+  });
+
+	function load_news(){
+    $.get("<%= english_latest_news_toi_latest_path %>?date=<%= @date %>");
+		$.get("<%= english_latest_news_in_latest_path %>?date=<%= @date %>");
+		$.get("<%= english_latest_news_ndtv_latest_path %>?date=<%= @date %>");
+		$.get("<%= english_latest_news_zee_latest_path %>?date=<%= @date %>");
+		$.get("<%= english_latest_news_oneindia_latest_path %>?date=<%= @date %>");
+		ga('send', 'pageview', location.pathname);
+	}
+</script>

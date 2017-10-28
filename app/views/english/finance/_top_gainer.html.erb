@@ -1,0 +1,24 @@
+<div class="col-sm-6"> 
+		<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">Top Gainer (NSE)</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-striped table-hover ">
+						<thead>
+							<tr> <th>Company</th> <th>Current</th> <th>Gain</th> </tr>
+						</thead>
+						<tbody>
+						<% @market["TopGainer"].each do |gainer| %>
+							<tr>
+								<td><%= gainer["Company"] %></td>
+								<td><%= gainer["CurrentPrice"] %></td>
+								<td><%= gainer["GainPercentage"] %> %</td>
+							</tr>
+						<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</div>
+

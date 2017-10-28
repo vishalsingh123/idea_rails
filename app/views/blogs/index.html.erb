@@ -1,0 +1,12 @@
+	<%= link_to 'New Blog', new_blog_path if admin? %>
+	<div class="row">
+		<%= render 'sidebar' %>
+		<%= render 'main' %>
+	</div>
+<script>
+  $(document).ready(function(){
+		ga('send', 'pageview', location.pathname);
+	});
+</script>
+
+

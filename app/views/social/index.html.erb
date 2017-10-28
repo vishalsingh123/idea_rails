@@ -1,0 +1,16 @@
+ <% @tweets.each_slice(2) do |row_items| %>
+  <div style="margin-top:20px;"></div>
+    <div class="row">
+    <% row_items.each do |tweet| %>
+      <div class="col-lg-6">
+				<%= raw(tweet.title) %>
+			</div>
+		<% end %>
+		</div>
+ <% end %>
+
+ <!--script type="text/javascript">
+		$(document).ready(function(){
+			ga('send', 'pageview', location.pathname);
+		});
+ </script -->

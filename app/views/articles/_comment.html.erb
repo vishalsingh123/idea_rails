@@ -1,0 +1,12 @@
+<div class="comment clearfix" id="comment_<%= comment.id %>">			
+	<div class="comment-avatar">
+		<%= image_tag comment.user.avatar.url %>
+	</div>
+	<div class="comment-content clearfix">
+		<h3><%= comment.title%></h3><div style="float:right"><%= link_to("Delete", {action: 'delete_comment', id: comment.id}, remote: true) if comment.user==current_user %></div>
+		<div class="comment-meta">By <a href="#"><%= comment.user.name %></a> | <%= comment.created_at.strftime("%d-%b-%Y %H:%M") %></div>
+		<div class="comment-body">
+			<p><%= comment.body%></p>
+		</div>
+	</div>
+</div>

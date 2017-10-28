@@ -1,0 +1,11 @@
+<table class="table">
+      <tbody>
+    <% @news.each do |n| %>
+      <% next if n["Title"].nil? or n["Title"].empty? %>
+        <tr>
+          <td style="width:90%"><h3><a href="<%= @base %><%= n['Link'] %>" target="_blank"><%= n["Title"] %></a></h3></td>
+          <td style="width:10%"><img src="<%= @img_base %><%= n['ImgLink']%>" width="140" height="90" /></td>
+        </tr>
+    <% end %>
+      </tbody>
+</table>

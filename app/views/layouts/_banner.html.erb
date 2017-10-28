@@ -1,0 +1,34 @@
+	<div class="banner">
+
+				<!-- slideshow start -->
+				<!-- ================ -->
+				<div class="slideshow">
+					
+					<!-- slider revolution start -->
+					<!-- ================ -->
+					<div class="slider-banner-container">
+						<div class="slider-banner">
+							<ul>
+							<% @images.each do |img| %>
+								<!-- slide 1 start -->
+								<li data-transition="random" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Vishal Blogs">
+								
+								<!-- main image -->
+								<img src="<%= img.picture.url %>"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+								</li>
+								<!-- slide 1 end -->
+							<% end %>
+								<!-- slide 2 start -->
+								
+							</ul>
+							<div class="tp-bannertimer tp-bottom"></div>
+						</div>
+					</div>
+					<!-- slider revolution end -->
+
+				</div>
+				<!-- slideshow end -->
+
+			</div>
+

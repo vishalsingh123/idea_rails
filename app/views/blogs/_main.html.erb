@@ -1,0 +1,50 @@
+<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-10 ">
+
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title">Blogs</h1>
+							<div class="separator-2"></div>
+							<!-- page-title end -->
+
+							<!-- masonry grid start -->
+							<div class="masonry-grid row">
+								
+    <% @blogs.each do |blog| %>
+								<!-- masonry grid item start -->
+								<div class="masonry-grid-item col-sm-6 col-md-4">
+									<!-- blogpost start -->
+									<article class="clearfix blogpost">
+										<div class="blogpost-body">
+											<%= render partial: 'blog_date', locals: {date: blog.created_at} %>
+											<div class="blogpost-content">
+												<header>
+													<h2 class="title"><%= link_to blog.title, blog %>  </h2>
+													<div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#"><%= blog.user.name%></a></div>
+												</header>
+												<p><%= truncate(blog.desc, :length => 250, :omission => "" , :escape => false) %></p>
+											</div>
+										</div>
+										<footer class="clearfix">
+											<ul class="links pull-left">
+												<li><i class="fa fa-comment-o pr-5"></i> <a href="#"><%= blog.comment_count%> comments</a> |</li> 
+												<li>
+													<%= link_to raw('<i class="glyphicon glyphicon-edit"></i>'), edit_blog_path(blog) if admin?%>
+													<%= link_to raw('<i class="glyphicon glyphicon-trash"></i>'), blog, method: :delete, data: { confirm: 'Are you sure?' } if admin? %>
+												</li>
+											</ul>
+											<%= link_to "Read more", blog, {class: "pull-right link"} %>
+										</footer>
+									</article>
+									<!-- blogpost end -->
+								</div>
+								<!-- masonry grid item end -->
+						<% end %>
+							</div>
+							<!-- masonry grid end -->
+
+						</div>
+						<!-- main end -->
+
+

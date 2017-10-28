@@ -1,0 +1,47 @@
+<!--
+<table class="table">
+      <tbody>
+    <%# @news.each do |n| %>
+      <%# next if n["Title"].nil? or n["Title"].empty? %>
+        <tr>
+          <td style="width:90%"><h3><a href="<%#= @base %><%#= n['Link'] %>" target="_blank"><%#= n["Title"] %></a></h3></td>
+          <td style="width:10%"><img src="<%#= @img_base %><%#= n['ImgLink']%>" width="140" height="90" /></td>
+        </tr>
+    <%# end %>
+      </tbody>
+</table>
+-->
+	<% @news.each_slice(3) do |row_items| %>
+	<div style="margin-top:20px;"></div>
+		<div class="row">
+		<% row_items.each do |n| %>
+      <% next if n["Title"].nil? or n["Title"].empty? %>
+			<div class="col-lg-4">
+				<a href="<%= @base %><%= n['Link'] %>" target="_blank">
+				<div jsname="WsjYwc" class="Ihwked UB0dDd GcESAf XkfHGe  hE2QI iFJd6c" data-iid="z13rc5iyor3jethf323lhzxrzszaf1qqh04" jsaction="click:qkHMFc" jslog="6941; 1:z13rc5iyor3jethf323lhzxrzszaf1qqh04; track:impression,click" tabindex="-1" aria-label="Post view" role="region" style="">
+            <div class="ELUvyf">
+              <div jsname="uwfEUd" id="body:i46">
+                <div class="fu5e3b sMVRZe" style="">
+                  <div class="wftCae" jsname="EjRJtf" dir="ltr"><h3><%= n["Title"] %></h3></div>
+                </div>
+              </div>
+            </div>
+            <div jsname="MTOxpb">
+              <div>
+                <div class="UE4aic" id="i4" >
+                  <div class="tOS5">
+                    <div class="WvxPQb" jsname="A08Sxc">
+											<% if !n['ImgLink'].nil? and !n['ImgLink'].empty? %>
+													<img class="qRwspd qnIxAe news_image" style="width: 400px;height:260px;"jsname="xJzy8c" src="<%= @img_base %><%= n['ImgLink']%>" onerror="this.src='/assets/logo-cb9812f855b22901e8ba508c1d70bc62984c5abcda27a61dd156fbbebf6ddc3e.png'"alt="Photo" width="400" height="200">
+											<% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+				</a>
+			</div>
+		<% end %>
+		</div>
+	<% end %>

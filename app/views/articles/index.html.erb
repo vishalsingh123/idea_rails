@@ -1,0 +1,11 @@
+	<%= link_to 'New Article', new_article_path if admin? %>
+	<div class="row">
+		<%= render 'main' %>
+	</div>
+<script>
+  $(document).ready(function(){
+		ga('send', 'pageview', location.pathname);
+	});
+</script>
+
+

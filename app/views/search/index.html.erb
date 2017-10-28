@@ -1,0 +1,17 @@
+<h1>Search Results for " <%= @query %> "</h1>
+<br/><br/>
+
+<% @news.each do |ne| %>
+	<% result = ne._data["inner_hits"]["news"]["hits"]["hits"] %>
+	<% result.each do |res| %>
+			<div class="row" style="padding-bottom: 10px;">
+				<div class="col-md-2">
+					<img src="<%= res["_source"]["ImgLink"]%>" width="150" height="150" >
+				</div>
+				<div class="col-md-10">
+					<h3><a href="<%= res["_source"]["Link"]%>" target="_blank">	<%= res["_source"]["Title"]%> </a></h3>
+					<p><%= res["_source"]["Description"]%></p>
+				</div>
+		</div>
+	<% end %>
+<% end %>

@@ -1,0 +1,33 @@
+<ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+<li>
+<%= form_for( resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'login-form'}) do |f| %>
+ <div class="form-group has-feedback">
+    <%= f.label :email ,:class => 'control-label' %>
+    <%= f.email_field :email,:class=>"form-control",:id=>'inputUserName', autofocus: true  %>
+<i class="fa fa-user form-control-feedback"></i>
+  </div>
+  <div class="form-group has-feedback">
+    <%= f.label :password ,:class=> 'control-label' %>
+    <%= f.password_field :password,:class=>"form-control",:id=>'inputPassword' , autocomplete: 'off'  %>
+<i class="fa fa-lock form-control-feedback"></i>
+  </div>
+<center> <%= f.submit "Log in", :class=> 'btn btn-group btn-dark btn-sm'  %></center>
+<!-- TO PUT SIGN UP BUTTON 
+<span>or</span>
+<button id='signUp' class="btn btn-group btn-default btn-sm">Sign Up</button>  -->
+<%#= button_to "Sign Up", new_registration_path(resource_name), class: 'btn btn-group btn-default btn-sm' %>
+ <%#= f.submit "Sign Up", :class=> 'btn btn-group btn-default btn-sm' %>
+<ul>
+<li> <%= link_to "Forgot your password?", new_password_path(resource_name) %></li>
+<li> <%= link_to "Sign up", new_registration_path(resource_name) %></li>
+</ul>
+<div class="divider"></div>
+<span class="text-center">Login with</span>
+<ul class="social-links clearfix">
+<li class="facebook"><%= link_to("<i class='fa fa-facebook'></i>".html_safe, user_facebook_omniauth_authorize_path) %></li>
+<li class="linkedin"><%#= link_to("<i class='fa fa-linkedin'></i>".html_safe, user_omniauth_authorize_path(:linkedin)) %></li>
+<!-- <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li> -->
+</ul>
+<% end %>
+</li>
+</ul>

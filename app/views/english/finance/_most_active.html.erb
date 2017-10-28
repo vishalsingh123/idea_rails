@@ -1,0 +1,23 @@
+<div class="col-sm-4"> 
+		<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Most Active (NSE)</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-striped table-hover ">
+						<thead>
+							<tr> <th>Company</th> <th>Current</th> <th>Value</th> </tr>
+						</thead>
+						<tbody>
+						<% @market["MostActiveStock"].each do |gainer| %>
+							<tr>
+								<td><%= gainer["Company"] %></td>
+								<td><%= gainer["Current"] %></td>
+								<td><%= gainer["Value"] %></td>
+							</tr>
+						<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</div>

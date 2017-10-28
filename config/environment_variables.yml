@@ -1,0 +1,11 @@
+development:
+  twitter_consumer_key:         "RKC9NxmOyk9VDeGrHoPwzUGvf"
+  twitter_consumer_secret:      "n4xHGjvvAOb85ZPBEWA3XxkLLAhBQdhmZWdUQ2CBYoOZHTyPwA"
+  twitter_access_token:         "1256722164-zw3nYMHRRSBNNZdAxslcQuPANUClPqzze4F6IUQ"
+  twitter_access_token_secret:  "0mFvFWAMIaaUCGkfAPhCTh7vJt3e4ZNkHZalCMmjx2D3a"
+production:
+  twitter_consumer_key:         "RKC9NxmOyk9VDeGrHoPwzUGvf"
+  twitter_consumer_secret:      "n4xHGjvvAOb85ZPBEWA3XxkLLAhBQdhmZWdUQ2CBYoOZHTyPwA"
+  twitter_access_token:         "1256722164-zw3nYMHRRSBNNZdAxslcQuPANUClPqzze4F6IUQ"
+  twitter_access_token_secret:  "0mFvFWAMIaaUCGkfAPhCTh7vJt3e4ZNkHZalCMmjx2D3a"
+

@@ -1,0 +1,30 @@
+		<button type="button" class="btn dropdown-toggle " data-toggle="dropdown"><i class="fa fa-shopping-cart"></i> Cart </button>
+										<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+											<li>
+												<table class="table table-hover">
+													<thead>
+														<tr>
+															<th class="quantity">QTY</th>
+															<th class="product">Product</th>
+															<th class="amount">Subtotal</th>
+														</tr>
+													</thead>
+													<tbody>
+														<% @current_user_carts.each do |cart| %>
+														<tr>
+															<td class="quantity"><%= cart.quantity %></td>
+															<td class="product">
+																<%= link_to cart.product_name, cart.product %>
+															</td>
+															<td class="amount"><%= cart.total_amount %></td>
+														</tr>
+														<% end %>
+													</tbody>
+												</table>
+												<div class="panel-body text-right">	
+												<a href="/cart" class="btn btn-group btn-default btn-sm">View Cart</a>
+												<a href="/checkout" class="btn btn-group btn-default btn-sm">Checkout</a>
+												</div>
+											</li>
+										</ul>
+
