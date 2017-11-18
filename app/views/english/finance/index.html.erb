@@ -1,3 +1,13 @@
+<!-- ============ Set Title and Description for page -->
+  <% content_for :title do %>
+    <%= "Finance English " %>
+  <% end %>
+  <% content_for :description do %>
+    <%= "Latest Finance News in english from Business Standard, Money Control, NDTV Profit, Economic Times" %>
+  <% end %>
+<!-- ============================================== -->
+
+
 <div class="row">
 		<%= render "top_gainer" %>
 		<%= render "top_looser" %>
@@ -22,11 +32,13 @@
 <ul class="nav nav-tabs">
   <li class="active"><a href="#business_st" data-toggle="tab">BusinessStandard</a></li>
   <li><a href="#mc" data-toggle="tab">MoneyControl</a></li>
+  <li><a href="#ndtv" data-toggle="tab">NDTV</a></li>
   <li><a href="#et" data-toggle="tab">ET</a></li>
 </ul>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="business_st"><center><%= image_tag "spinner.gif" %></center></div>
   <div class="tab-pane fade" id="mc"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="ndtv"><center><%= image_tag "spinner.gif" %></center></div>
   <div class="tab-pane fade" id="et"><center><%= image_tag "spinner.gif" %></center></div>
 </div>
 
@@ -34,6 +46,7 @@
   $(document).ready(function(){
     $.get("<%= english_finance_business_standard_path %>?date=<%= @date %>");
     $.get("<%= english_finance_money_control_path %>?date=<%= @date %>");
+    $.get("<%= english_finance_ndtv_path %>?date=<%= @date %>");
     $.get("<%= english_finance_et_path %>?date=<%= @date %>");
 		ga('send', 'pageview', location.pathname);
   });

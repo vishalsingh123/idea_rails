@@ -1,3 +1,12 @@
+<!-- ============ Set Title and Description for page -->
+  <% content_for :title do %>
+    <%= "Entertainment English" %>
+  <% end %>
+  <% content_for :description do %>
+    <%= "Latest Entertainment News in english from Bollywood Hungama, First Post, Rediff" %>
+  <% end %>
+<!-- ============================================== -->
+
 
 <%= link_to english_entertainment_path(:date => Time.now.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==Time.now.strftime("%Y-%m-%d")}"  } do %>
  Today <i class="fa fa-chevron-right pl-10"></i> 

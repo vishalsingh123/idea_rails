@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
 
+
 	root "english/latest_news#index"
   get 'search', to: "search#index"
   get 'social' => "social#index"
+  get 'news-article', to: "news_article#index"
 
 	namespace :english do
 		get "latest_news" => "latest_news#index"
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
 		get "finance/money_control" => "finance#money_control"
 		get "finance/et" => "finance#et"
 		get "finance/zee" => "finance#zee"
+		get "finance/ndtv" => "finance#ndtv"
 		get "finance/market_action" => "finance#market_action"
 
 		get "cricket" => "cricket#index"
@@ -33,6 +36,10 @@ Rails.application.routes.draw do
 		get "tech" => "tech#index"
 		get "tech/gadgets_now" => "tech#gadgets_now"
 		get "tech/techgig" => "tech#techgig"
+
+		get "world" => "world#index"
+		get "world/bbc" => "world#bbc"
+		get "world/fox" => "world#fox"
 	end
 	namespace :hindi do
 		get "latest_news" => "latest_news#index"

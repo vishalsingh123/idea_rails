@@ -1,3 +1,11 @@
+<!-- ============ Set Title and Description for page -->
+  <% content_for :title do %>
+    <%= "Home Hindi" %>
+  <% end %>
+  <% content_for :description do %>
+    <%= "Latest Hindi News from ABP, NDTV, AAJ TAK, NEWS24, DAINIK" %>
+  <% end %>
+<!-- ============================================== -->
 
 <%= link_to hindi_latest_news_path(:date => Time.now.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==Time.now.strftime("%Y-%m-%d")}"  } do %>
  Today <i class="fa fa-chevron-right pl-10"></i> 
@@ -14,14 +22,17 @@
 <%= link_to hindi_latest_news_path(:date => 4.day.ago.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==4.day.ago.strftime("%Y-%m-%d")}"} do %>
 	<%= 4.day.ago.strftime("%d %b")%> <i class="fa fa-chevron-right pl-10"></i>
 <% end  %>
+
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#ndtv" data-toggle="tab">Ndtv</a></li>
+  <li class="active"><a href="#abp" data-toggle="tab">ABP</a></li>
+  <li><a href="#ndtv" data-toggle="tab">Ndtv</a></li>
   <li><a href="#aaj_tak" data-toggle="tab">Aaj Tak</a></li>
   <li><a href="#news24" data-toggle="tab">News 24</a></li>
   <li><a href="#dainik" data-toggle="tab">Dainik</a></li>
 </ul>
 <div id="myTabContent" class="tab-content">
-  <div class="tab-pane fade active in" id="ndtv"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade active in" id="abp"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="ndtv"><center><%= image_tag "spinner.gif" %></center></div>
   <div class="tab-pane fade" id="aaj_tak"><center><%= image_tag "spinner.gif" %></center></div>
   <div class="tab-pane fade" id="news24"><center><%= image_tag "spinner.gif" %></center></div>
   <div class="tab-pane fade" id="dainik"><center><%= image_tag "spinner.gif" %></center></div>
@@ -29,7 +40,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    //$.get("<%= hindi_latest_news_abp_path %>?date=<%= @date%>"");
+    $.get("<%= hindi_latest_news_abp_path %>?date=<%= @date%>");
     $.get("<%= hindi_latest_news_ndtv_path %>?date=<%= @date%>");
     $.get("<%= hindi_latest_news_aaj_tak_path %>?date=<%= @date%>");
     $.get("<%= hindi_latest_news_news24_path %>?date=<%= @date%>");

@@ -31,7 +31,9 @@ class English::LatestNewsController < ApplicationController
 	end
 
 	def load_news
-		@news = News.where("channel=? and news_type=? and date_format(updated_at, '%Y-%m-%d')=?",@channel, @@news_type, @date).last["news"]
+		@news = News.where("channel=? and news_type=? and date_format(news_date, '%Y-%m-%d')=?",@channel, @@news_type, @date).last
+		@main_news = @news
+		@news = (@news.nil?) ? [] : @news["news"]
 	end
 
 

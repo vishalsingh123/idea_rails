@@ -17,7 +17,8 @@
 		<% row_items.each do |n| %>
       <% next if n["Title"].nil? or n["Title"].empty? %>
 			<div class="col-lg-4">
-				<a href="<%= @base %><%= n['Link'] %>" target="_blank">
+				<!-- a href="<%#= @base %><%#= n['Link'] %>" target="_blank" -->
+				<%= link_to news_article_path(:src => n['Link'], :channel=> @main_news['channel'], :news_type => @main_news['news_type'], :news_date => @main_news['news_date'], :medium => @main_news['medium']) do %>
 				<div jsname="WsjYwc" class="Ihwked UB0dDd GcESAf XkfHGe  hE2QI iFJd6c" data-iid="z13rc5iyor3jethf323lhzxrzszaf1qqh04" jsaction="click:qkHMFc" jslog="6941; 1:z13rc5iyor3jethf323lhzxrzszaf1qqh04; track:impression,click" tabindex="-1" aria-label="Post view" role="region" style="">
             <div class="ELUvyf">
               <div jsname="uwfEUd" id="body:i46">
@@ -40,7 +41,8 @@
               </div>
             </div>
         </div>
-				</a>
+				<% end %>
+				<!-- /a -->
 			</div>
 		<% end %>
 		</div>

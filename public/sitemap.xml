@@ -7,19 +7,22 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
-  <loc>http://latestkhabar.in/</loc>
+  <loc>http://latestkhabar.in/?_escaped_fragment_=</loc>
 </url>
 <url>
-  <loc>http://latestkhabar.in/english/finance</loc>
+  <loc>http://latestkhabar.in/english/finance/?_escaped_fragment_=</loc>
 </url>
 <url>
-  <loc>http://latestkhabar.in/english/cricket</loc>
+  <loc>http://latestkhabar.in/english/cricket/?_escaped_fragment_=</loc>
 </url>
 <url>
-  <loc>http://latestkhabar.in/english/entertainment</loc>
+  <loc>http://latestkhabar.in/english/entertainment/?_escaped_fragment_=</loc>
 </url>
 <url>
-  <loc>http://latestkhabar.in/hindi/latest_news</loc>
+  <loc>http://latestkhabar.in/english/tech/?_escaped_fragment_=</loc>
+</url>
+<url>
+  <loc>http://latestkhabar.in/hindi/latest_news/?_escaped_fragment_=</loc>
 </url>
 <url>
   <loc>http://latestkhabar.in/blogs</loc>

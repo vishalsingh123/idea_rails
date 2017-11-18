@@ -1,0 +1,30 @@
+<!-- ============ Set Title and Description for page -->
+  <% content_for :title do %>
+    <%= "World English" %>
+  <% end %>
+  <% content_for :description do %>
+    <%= "Latest World News in english from BBC , Fox News" %>
+  <% end %>
+<!-- ============================================== -->
+
+
+<%= link_to english_world_path(:date => Time.now.strftime("%Y-%m-%d")), {:class => "btn btn-light-gray btn-sm #{'active' if @date==Time.now.strftime("%Y-%m-%d")}"  } do %>
+ Today <i class="fa fa-chevron-right pl-10"></i> 
+<% end  %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#bbc" data-toggle="tab">BBC</a></li>
+  <li><a href="#fox" data-toggle="tab">FOX</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="bbc"><center><%= image_tag "spinner.gif" %></center></div>
+  <div class="tab-pane fade" id="fox"><center><%= image_tag "spinner.gif" %></center></div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.get("<%= english_world_bbc_path%>?date=<%= @date %>");
+    $.get("<%= english_world_fox_path%>?date=<%= @date %>");
+		ga('send', 'pageview', location.pathname);
+  });
+</script>

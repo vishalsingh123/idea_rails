@@ -6,12 +6,11 @@
   	<%= truncate @blog.desc, length: 100 %>
 	<% end %>
 <!-- ============================================== -->
-
 <div class="row">
 
 						<!-- main start -->
 						<!-- ================ -->
-						<div class="main col-md-12">
+						<div class="main col-md-8">
 
 							<!-- page-title start -->
 							<!-- ================ -->
@@ -23,7 +22,7 @@
 								<div class="blogpost-body">
 									<div class="side">
 										<%= render partial: 'blog_date', locals: {date: @blog.created_at} %>
-									<div id="affix"><span class="share">Share This</span><div id="share"></div></div>
+									<div id="affix"><span class="share">Share This</span><div id="share" data-url="<%= request.original_url %>" data-text="<%= @blog.title %>"></div></div>
 									</div>
 									<div class="blogpost-content">
 										<header>
@@ -46,10 +45,8 @@
 								</div>
 							</article>
 							<!-- blogpost end -->
-					
-						</div>
-						<!-- main end -->
 
+							
 						<!-- comments start -->
 						<div id="comments">
 								<h2 class="title">Comments</h2>
@@ -61,6 +58,39 @@
 
 						<!-- comments form-->
 						<%= render partial: 'comment_form' if current_user%>	
+					
+						</div>
+						<!-- main end -->
+					
+						<aside class="col-md-3 col-md-offset-1">
+							<div class="sidebar">
+<% @related_blogs.each_with_index do |blog, index| %>
+								<div class="block clearfix">
+			<% if index==0 %>
+									<h3 class="title">Related Blogs</h3>
+									<div class="separator"></div>
+			<% end %>
+									<div class="image-box">
+										<div class="overlay-container">
+                      <%= image_tag blog.avatar.url %>
+											<div class="overlay">
+												<div class="overlay-links">
+													<a href="javascript:void(0)"><i class="fa fa-link"></i></a>
+													<a href="<%= blog.avatar.url %>" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
+												</div>
+											</div>
+										</div>
+										<div class="image-box-body">
+											<h3 class="title"><%= link_to blog.title, blog %>  </h3>
+											<p><%= truncate(blog.desc, :length => 100, :omission => "" , :escape => false) %></p>
+											<%= link_to "Read more", blog, {class: "link"} %>
+										</div>
+									</div>
+								</div>
+<% end %>
+							</div>
+						</aside>		
+
 					</div>
 
 

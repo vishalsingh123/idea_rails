@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
   def show
 		set_toggle if current_user
 		@comments = @blog.root_comments
+		@related_blogs = Blog.where("id!=? and category_id=?", @blog.id, @blog.category_id).limit(6)
 		respond_with(@blog)
   end
 

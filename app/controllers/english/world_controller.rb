@@ -1,16 +1,16 @@
-class English::TechController < ApplicationController
-	@@news_type="Technology"
+class English::WorldController < ApplicationController
+	@@news_type="World"
 	caches_page :index
   def index
   end
 
-	def gadgets_now 
-		@channel="GadgetsNow"
+	def bbc 
+		@channel="BBC"
 		load_news
 	end
 
-	def techgig 
-		@channel="TechGig"
+	def fox 
+		@channel="FOX"
 		load_news
 	end
 	
